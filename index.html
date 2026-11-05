@@ -1,1016 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probabilistic Method - Uppsala University</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #1b1c1d;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
 
-    <head>
+    <div class="max-w-4xl w-full bg-white border border-slate-200 shadow-sm rounded-2xl p-8 sm:p-12 space-y-10">
         
-        <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-        
-<style>
-:target {
-    border: 2px solid #D4D4D4;
-    background-color: #e5eecc;
-}
+        <!-- Header Section -->
+        <div class="p-8 text-center relative space-y-3">
+            <h1 class="text-4xl sm:text-5xl font-light text-rose-900 tracking-tight">Probabilistic Method</h1>
+            <p class="text-sm font-semibold text-slate-900">PhD / masters Course, 5hp, Autumn 2026, Uppsala University</p>
+        </div>
+
+        <!-- Course Description Paragraphs -->
+        <div class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-800">
+            <p>
+                This course covers the theoretical basis for random graphs and general techniques to analyse random discrete structures.
+            </p>
+            <p>
+                Topics to include : Random graph models, First and Second Moment methods, Thresholds / Phase transitions, Analysis of Random Algorithms, Alterations, Lovász Local Lemma, Graphons / Graph limits, Correlation Inequalities, Janson Inequalities, Concentration of Measure, Non-concentration of Measure, Entropy methods.
+            </p>
+        </div>
+
+        <hr class="border-t border-slate-200 border-dashed">
+
+        <!-- Lecturers Section -->
+        <div class="space-y-3 text-sm sm:text-base text-slate-800">
+            <p class="font-medium">Lecturers:</p>
+            <p>
+                Anda Skeja (<a href="https://anda-skeja.com/" class="text-rose-700 hover:underline">homepage</a>) and Fiona Skerman (<a href="https://fskerman.github.io/" class="text-rose-700 hover:underline">homepage</a>)
+            </p>
+        </div>
+
+        <hr class="border-t border-slate-200 border-dashed">
+
+        <!-- Notice Section -->
+        <div class="text-sm sm:text-base leading-relaxed text-slate-800">
+            <p>
+                This is a PhD / master's course running Sep - Dec this year. Master's students may take as a special topics course in math or stats 1MA344 or 1MS051. This is a faculty wide course (<a href="https://www.uu.se/en/staff/faculty/science-and-technology/education-and-teaching/doctoral-studies/doctoral-student/courses/faculty-courses/2026-probabilistic-method" class="text-rose-700 hover:underline">link</a>) students with a wide range of backgrounds are welcome. <br>
+                <br>
+                <!--The course has now started but it should be possible for a motivated student to join at this stage. Read the notes below and see you at the next lecture.-->
+                <br>
+            </p>
+        </div>
+        <hr class="border-t border-slate-200 border-dashed">
 
 
+            <div>
+                <div class="border-b border-slate-300 pb-4 flex items-center justify-between cursor-pointer hover:text-rose-900 transition-colors">
+                    <span class="text-xl font-semibold text-rose-900">Lecture notes</span>
+                    <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <!-- Plain lecture notes list with PDF links -->
+                <div class="mt-4 pl-2 space-y-2 text-sm sm:text-base text-slate-800">
+                    <p> (will appear here as course progresses) </p>
+                    <p>Lecture 1: <a href="https://probcombuu.github.io/L1.pdf" class="text-rose-700 hover:underline">notes</a>.</p>
+                    <p>Lecture 2: <a href="https://probcombuu.github.io/L2.pdf" class="text-rose-700 hover:underline">notes</a>.</p>
+                    <p>Lecture 3: <a href="https://probcombuu.github.io/L3.pdf" class="text-rose-700 hover:underline">notes</a>.</p>
+                    <p>Lecture 4: <!--Lovász local lemma.--><a href="https://probcombuu.github.io/L4.pdf" class="text-rose-700 hover:underline">notes</a>.</p>
+                    <p>Lecture 7: <!--Janson's inequality.--><a href="https://probcombuu.github.io/L7.pdf" class="text-rose-700 hover:underline">notes</a>.</p>
+  <!-- <p>Lecture 3: <a href="#" class="text-rose-700 hover:underline">Thresholds and Phase Transitions (PDF)</a></p> -->
+                </div>
+            </div>
+        <hr class="border-t border-slate-200 border-dashed">
 
-a.simple:link {display:inline;width:120px;font-weight:normal;color:#0000FF;background-color:transparent;text-align:right;padding:0px;text-decoration:none;text-transform:none;}
-a.simple:visited {display:inline;width:120px;font-weight:normal;color:#0000FF;background-color:transparent;text-align:right;padding:0px;text-decoration:underline;text-transform:none;}
-a.simple:hover {display:inline;width:120px;font-weight:normal;color:#0000FF;background-color:transparent;text-align:right;padding:0px;text-decoration:underline;text-transform:none;}
-</style>
-        
- 
-
-      
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Fiona Skerman</title>
-        <meta name="description" content="Fiona Skerman academic profile.">
-        <meta name="keywords" content="fiona, skerman, bristol, mcdiarmid, networks, graph, probability, oxford, uppsala, probability, Masaryk, modularity">
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body>
-<center>
- <ul>
-<li><a href="index.html" style='background-color:#0099FF' onMouseOver="this.style.backgroundColor='#00CCFF'" onMouseOut="this.style.backgroundColor='#0099FF'" href="https://fskerman.github.io/material.html">Home</a></li>
-<li><a href="cv.pdf">CV</a></li>
-<li><a href="material.html">Teaching</a></li>        
-</ul></center><p><p>
-
-        <table border="0"><tr><td width="40%">
-        <h1>Fiona Skerman</h1>
-        
-            
-           <script type="text/javascript" language="javascript">
-
-// Email obfuscator script 2.1 by Tim Williams, University of Arizona
-// Random encryption key feature by Andrew Moulden, Site Engineering Ltd
-// This code is freeware provided these four comment lines remain intact
-// A wizard to generate this code is at http://www.jottings.com/obfuscator/
-// https://conferences.cirm-math.fr/3548.html /
-
-            
-{ coded = "Clr4u.NdieFu4@UFulR.qrF"
-  key = "wak8PpGMoqn9AEFi1TxXJCL5udOY0SVrh4WgsQlB6IZtj72bcH3KvmeDzyUNfR"
-  shift=coded.length
-  link=""
-  for (i=0; i<coded.length; i++) {
-    if (key.indexOf(coded.charAt(i))==-1) {
-      ltr = coded.charAt(i)
-      link += (ltr)
-    }
-    else {     
-      ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
-      link += (key.charAt(ltr))
-    }
-  }
-  document.write("<a style='display:inline;width:120px;font-weight:normal;color:#545454;background-color:#FFFFFF;text-align:right;padding:0px;text-decoration:none;text-transform:lowercase;' href='mailto:"+link+"'><i>firstname.lastname@math.uu.se</i></a>")
-}
-//
-</script>
-
-
-            
-
-            
-
-
-            <p></p>
-            <!--- <b>PhD positions</b> deadline 16th March. (<a class="simple" href="https://www.uu.se/en/about-uu/join-us/jobs-and-vacancies/job-details?query=901355" target="_blank">link</a>). These are positions to work with anyone in the math department.<br> 
-
-
-            <b>Tenure-track job between maths & comp sci.</b> deadline 20th March. (<a class="simple" href="https://www.uu.se/en/about-uu/join-us/jobs-and-vacancies/job-details?query=895804" target="_blank">link</a>). 
-            Feel free to contact me if you have any questions. --->
-
-
-
-            <!--- 
-            https://www.uu.se/en/about-uu/join-us/jobs-and-vacancies/job-details?query=901355--->
-
-
-            <!--- 
-            <p></p><b>Postdoc positions available:</b> deadline 12th February. Apply <a class="simple" href="https://www.jobb.uu.se/details/?positionId=691124" target="_blank">here</a> (or <a class="simple" href="https://www.jobb.uu.se/details/?positionId=691108" target="_blank">here</a> if you finished a PhD >3 years ago). Please contact me if you have any questions. --->
-
-
-
-            <p> I am an Associate Professor at Uppsala University.</p><p> 
-
-                For Spring 2025 I was at SLMath/MSRI program <a class="simple" href="https://www.slmath.org/programs/348" target="_blank">Probability and Discrete Structures. For Fall 2021 I was a Simons-Berkeley Research Fellow in the program on <a class="simple" href="https://simons.berkeley.edu/programs/si2021" target="_blank">Computational Complexity of Statistical Inference</a> at UC Berkeley's Simons Institute. My previous positions were as a research fellow at Bristol University, Uppsala University, and with <a class="simple" href="http://www.ucw.cz/~kral/" target="_blank">Dan Kráľ</a> at Masaryk University. 
-
-           <p>My DPhil with <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a> researched the modularity of networks and was awarded the Corcoran Memorial Prize for the best thesis in the Oxford Statistics Department [<a class="simple" href="https://ora.ox.ac.uk/objects/uuid:1bbaaac7-bad0-469d-add4-6a0dbf75f7c6" target="_blank">thesis</a>]. Before coming to Oxford, I did my honours thesis with <a class="simple" href="http://users.cecs.anu.edu.au/~bdm/" target="_blank">Brendan McKay</a> at the Australian National University, looking at likely degree sequences in random bipartite graphs [<a class="simple" href="https://fskerman.github.io/expectation38.pdf" target="_blank">thesis</a>].<p>
- 
- 
-          
-
-
-
-          <p>
-          
-        <!--- https://www.maths.ox.ac.uk/about-us/life-oxford-mathematics/oxford-mathematics-alphabet/j-juggling --->
- 
-          <br>         
-
-        
-
-        <!--
-            
-         <h3> ALEA Young Workshop Normandy 2019</h3>
- 
-            <p></p> Here are the <a class="simple"  href="http://www2.math.uu.se/~fiosk856/ALEAPhases.pdf" target="_blank">lecture notes</a> and the <a class="simple"  href="http://www2.math.uu.se/~fiosk856/ALEAExercises.pdf" target="_blank">exercises</a> for course in Random Graphs, Thresholds and Phase transitions. <p>
-          
-            --> 
-
-
-             <!--  
-
-                    
-        </td>
-            <td align="top" width="35%">
-                <img src="skerman.jpg" width="200"></td></tr>
-<a class="simple" href="https://www1.maths.ox.ac.uk/newsletter-item/26981" target="_blank">Corcoran Memorial Prize</a> 
+    <!-- Assignments Section -->
+        <div>
+            <div class="border-b border-slate-300 pb-4 flex items-center justify-between cursor-pointer hover:text-rose-900 transition-colors">
+                <span class="text-xl font-semibold text-rose-900">Assignments</span>
+                <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div class="mt-4 pl-2 space-y-2 text-sm sm:text-base text-slate-800">
+                <p>Assignment 1: <a href="https://probcombuu.github.io/prob_method_ass1.pdf" class="text-rose-700 hover:underline">PDF</a>.</p>
+            </div>
+        </div>
+        <hr class="border-t border-slate-200 border-dashed">
 
             
-            
-           
-        <p>
-        </p>
-  
-            -->
-
-<h3>Notes </h3>
-
-<p> CIRM Learning on Graphs : phase transitions. See <a class="simple" href="https://fskerman.github.io/Learning_Graphs_L2.pdf" target="_blank"> lecture notes </a> and <a class="simple" href="https://fskerman.github.io/Learning_Graphs_Q.pdf" target="_blank">exercises</a>. </p><p> 
-
-
-        
-<h3>Survey</h3>
-    
-      <p><details >
-        <summary ><a class="simple" href="https://arxiv.org/abs/2509.22066" target="_blank"> Modularity and random graphs</a>   with <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a>; to appear as a chapter in <i>Topics in Probabilistic Graph Theory.</i> 
-        [<a class="simple" href="https://arxiv.org/abs/2509.22066" target="_blank">arXiv</a>] </i> </summary>
-
-<a> 
-        <blockquote><small><p>
-        <!--<img border="10" alt="figure" src="ModExBpng.png" width="100" height="150"> -->
-        </a>
-        <font color="grey">  
-        
-        Modularity introduced by Newman and Girvan (<a class="simple" href="http://arxiv.org/abs/cond-mat/0308217" target="_blank">link</a>) is a popular metric in community detection.<br>  <br>  
-
-        For a given graph $G$, each partition of the vertices has a modularity score, with higher values indicating that the partition better captures community structure in $G$. The modularity $q^*(G)$ of $G$ is the maximum over all vertex-partitions of the modularity score, and satisfies $0\leq q^*(G)< 1$. Modularity lies at the heart of the most popular algorithms for community detection.<br><br>
-        
-        In this chapter we discuss the behaviour of the modularity of various kinds of random graphs, starting with the binomial random graph $G_{n,p}$ with $n$ vertices and edge-probability $p$.<br>
-
-
-
-        </font> </a></small></blockquote>
-
-        </details></p>
-
-<br>
-       
-<h3>Preprints</h3>
-<p> Click on arrows to expand. </p>  
-
-
-<p><details >
-        <summary ><a class="simple" href="http://arxiv.org/abs/2610.38599" target="_blank">Graphon Colourings and Limits of Graph Partitions</a> with 
-        <a class="simple" href="http://www2.math.uu.se/~svante/papers/index.html" target="_blank">Svante Janson</a>,    
-        <a class="simple" href="https://tiffanyyylo.github.io/" target="_blank">Tiffany Y. Y. Lo</a>, <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a> and <a class="simple" href="https://anda-skeja.com/" target="_blank">Anda Skeja</a>; <i> Preprint. </i> 
-        [<a class="simple" href="http://arxiv.org/abs/2610.38599" target="_blank">arXiv</a>] </i> </summary>
-
-        <a> 
-        <blockquote><small><p>
-        </a>
-        <font color="grey">  
-        We develop a framework for pure and mixed graphon colourings and use it to study the limiting behaviour of graph partition parameters under cut convergence.
-        Pure colourings correspond to measurable partitions, while mixed colourings assign a probability distribution on the colour set to each point. We develop the representation, equivalence and convergence theory, and show that every mixed graphon colouring has an equivalent pure representative, possibly on a different probability space. For each fixed finite colour set, we establish compactness and describe the topology of coloured graph limits using the cut norm on graphons and the weak-$*$ topology on colourings. The usual coloured cut distance characterises convergence for pure colourings, but not for general mixed colourings.<br><br>
-
-
-        As applications,  we prove that the Cheeger constant and modularity converge to their mixed graphon counterparts along growing cut-convergent graph sequences assuming uniformly linear minimum degree and positive limiting edge density, respectively. We also establish their continuity in cut distance, with a stability bound for the Cheeger constant. For modularity, we further characterise coloured graphons attaining extremal modularity values and prove attainment of the mixed optimum for each fixed number of colours. We also exhibit a graphon whose modularity supremum is not attained by any finite colouring.
-        </font> </a></small></blockquote>
-        </details></p>
-
-<p><details >
-        <summary ><a class="simple" href="https://arxiv.org/abs/2610.34328" target="_blank">On first-order limiting probabilities for small permutation classes</a>   with <a class="simple" href="https://scholar.google.com/citations?user=fGuQBikAAAAJ&hl=en" target="_blank">Victor Falgas-Ravry</a>, <a class="simple" href="http://abel.math.umu.se/~klasm/" target="_blank">Klas Märkström</a> and <a class="simple" href="https://www2.umu.se/personal/eero-raty/" target="_blank">Eero Räty</a>; <i> Preprint. </i> 
-        [<a class="simple" href="https://arxiv.org/abs/2610.34328" target="_blank">arXiv</a>] </i> </summary>
-
-        <a> 
-        <blockquote><small><p>
-        </a>
-        <font color="grey">  
-            Given a small permutation class $P$, we consider the set of possible limits of the probability $\mathbb{P}\left(\mathbf{\sigma}_n \models \Psi\right)$ that a uniformly chosen random permutation $\mathbf{\sigma}_n\in P_n$ satisfies a fixed first-order sentence in Theory of Two Orders (<a class="simple" href="https://arxiv.org/abs/1808.05459" target="_blank">TOTO</a>). <br><br>
-
-            In the case of small permutation classes with polynomial growth, we show this limit set is finite, and characterize the set explicitly. In particular, we prove that many natural small permutation classes of polynomial growth arising from permutation matrices satisfy a $0$-$1$ convergence law, and have an infinite model. <br><br>
-
-            For small permutation classes with exponential growth we show that the limit set is dense in $[0,1]$, thereby extending a result of <a class="simple" href="https://dmtcs.episciences.org/en/articles/11751/download" target="_blank">Albert--Bouvel--F\'eray--Noy</a>.
-        </font> </a></small></blockquote>
-  </details></p>
-
-
-<p><details >
-        <summary ><a class="simple" href="https://arxiv.org/abs/2606.05266" target="_blank">Sharp Low-Degree Thresholds for Planted-vs-Planted Testing</a> with
-        <a class="simple" href="https://anda-skeja.com/" target="_blank">Anda Skeja</a>, 
-                <a class="simple" href="https://www.uu.se/en/contact-and-organisation/staff?query=N23-1677" target="_blank">Daniel Gutierrez Espinoza</a> and
-       <a class="simple" href="https://www.alex-wein.com/" target="_blank">Alex Wein</a>; <i> Preprint. </i> 
-        [<a class="simple" href="https://arxiv.org/abs/2606.05266" target="_blank">arXiv</a>] </i> </summary>
-
-        <a> 
-        <blockquote><small><p>
-        </a>
-        <font color="grey">  
- 
-        We establish the first sharp thresholds for low-degree polynomial tests in planted-vs-planted settings, where the goal is to determine with vanishing error which of two structured planted mechanisms generated the observed data. We prove matching low-degree upper and lower bounds for counting communities in the planted submatrix and planted dense
-        subgraph models. The resulting testing threshold coincides, down to the sharp constant,
-        with the known low-degree recovery threshold. In contrast, the task of weak testing, where
-        the goal is to outperform random guessing, does not have a sharp threshold but rather a
-        smooth transition, which we identify.<br><br>  
-
-        To prove our results, we develop a framework for
-        planted-vs-planted testing that builds on a latent-variable expansion originating in lowdegree recovery and employs new methods to identify and prune non-signal contributions.
-
-        </font> </a></small></blockquote>
-  </details></p>
-
-
-<p><details >
-        <summary ><a class="simple" href="https://arxiv.org/abs/2601.05953" target="_blank">Note on edge expansion and modularity in preferential attachment graphs</a>   with <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a>, <a class="simple" href="https://scholar.google.com/citations?user=6HFfOroAAAAJ&hl=pl" target="_blank">Katarzyna Rybarczyk</a> and <a class="simple" href="http://scholar.google.com/citations?user=kPDNP-cAAAAJ&hl=en" target="_blank">Małgorzata Sulkowska</a>; <i> Preprint. </i> 
-        [<a class="simple" href="https://arxiv.org/abs/2601.05953" target="_blank">arXiv</a>] </i> </summary>
-
-        <a> 
-        <blockquote><small><p>
-        </a>
-        <font color="grey">  
- 
-        Edge expansion is a parameter indicating how well-connected a graph is and is an important notion in theoretical computer science. Modularity measures of how well a graph can be partitioned into communities and is widely used in clustering applications. We study these two parameters in models of random preferential attachment graphs, with $h \geq 2$ edges added per step. We establish new bounds for the likely edge expansion for both random models. Using bounds for edge expansion of small subsets of vertices, we derive new upper bounds also for the modularity values for small $h$.
-
-        </font> </a></small></blockquote>
-  </details></p>
-
-
-
-
-
-
-
-<p><details >
-      <summary ><a class="simple" href="https://arxiv.org/abs/2307.07271" target="_blank">Universal lower bound for community structure of sparse graphs</a>  with <a class="simple" href="https://github.com/vagdur" target="_blank">Vilhelm Agdur</a> and <a class="simple" href="https://sites.google.com/view/ninakamcev/" target="_blank">Nina Kamčev</a>; <i> Preprint. </i> 
-        [<a class="simple" href="https://arxiv.org/abs/2307.07271" target="_blank">arXiv</a>] </i> </summary>
-
-      <a> 
-      <blockquote><small><p>
-        <img border="10" alt="figure" src="ModExBpng.png" width="100" height="150"> </a>
-        <font color="grey">  
-    
-        Modularity introduced by Newman and Girvan (<a class="simple" href="http://arxiv.org/abs/cond-mat/0308217" target="_blank">link</a>) is a popular metric in community detection.<br>  <br>  
-
-        We prove new lower bounds on the modularity of graphs. Specifically, the modularity of a graph $G$ with average degree $\bar d$ is $Ω(\bar{d}^{-1/2})$, under some mild assumptions on the degree sequence of $G$. The lower bound $Ω(\bar{d}^{-1/2})$ applies, for instance, to graphs with a power-law degree sequence or a near-regular degree sequence.<br>  <br>  
-
-        It has been suggested that the relatively high modularity of the Erdős-Rényi random graph $G_{n,p}$ stems from the random fluctuations in its edge distribution, however our results imply high modularity for any graph with a degree sequence matching that typically found in $G_{n,p}$. <br>  <br>  
-
-
-        The proof of the new lower bound relies on certain weight-balanced bisections with few cross-edges, which build on ideas of Alon (see <a class="simple" href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D7E8BD80EC7D9FDB09BB239479D5A9B1/S096354839700299Xa.pdf/div-class-title-on-the-edge-expansion-of-graphs-div.pdf" target="_blank"> this paper</a>) and may be of independent interest.
-        </font> </a></small></blockquote>
-  </details></p>
-
-
-
-
-
-
-
-
-
-
-
-<p><details >
-      <summary ><a class="simple" href="https://arxiv.org/abs/2112.13190" target="_blank">Modularity and partially observed graphs</a>  with <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a>; <i> Preprint. </i> 
-        [<a class="simple" href="https://arxiv.org/abs/2112.13190" target="_blank">arXiv</a>] <!--[<a class="simple" href="https://arxiv.org/pdf/2112.13190.pdf" target="_blank">pdf</a>] --> </i> </summary>
-
-      <a> 
-      <blockquote><small><p>
-        <img border="10" alt="figure" src="ModExBpng.png" width="100" height="150"> </a>
-        <font color="grey">  <!-- Clustering algorithms for large networks typically use the modularity score to compare which partitions better represent modular structure in the data. Given a network, the modularity of a partition of the vertex set is a number in [0, 1) which measures the extent to which edge density is higher within parts than between parts; and the modularity of the network is the maximum modularity of any partition.
-
-         --> 
-
-        Suppose that there is an unknown underlying graph $G$ on a large vertex set, and we can test only a proportion of the possible edges to check whether they are present in $G$. If $G$ has high modularity, is the observed graph $G'$ likely to have high modularity? We see that this is indeed the case under a mild condition, in a natural model where we test edges at random. We find that $q^*(G') \geq q^*(G)-\varepsilon$ with probability at least $1-\varepsilon$, as long as the expected number edges in $G'$ is large enough. Similarly, $q^*(G') \leq q^*(G)+\varepsilon$ with probability at least $1-\varepsilon$, under the stronger condition that the expected average degree in $G'$ is large enough. Further, under this stronger condition, finding a good partition for $G'$ helps us to find a good partition for $G$.
-
-        Modularity introduced by Newman and Girvan <a class="simple" href="http://arxiv.org/abs/cond-mat/0308217" target="_blank">(in this paper)</a> is a popular metric in community detection.<br>  
-            </font> </a></small></blockquote>
-  </details></p>
-
-<br>
-     
-<h3>Publications and accepted manuscripts</h3>
-<p> Do not hesitate to email if you have trouble accessing any of the manuscripts listed below. </p>
-
-<p><details >
-
-
-        <summary > 23. <a class="simple" href="https://arxiv.org/abs/2507.17541" target="_blank">Approximating temporal modularity on graphs of small underlying treewidth</a>   with <a class="simple" href="https://github.com/vagdur" target="_blank">Vilhelm Agdur</a>, <a class="simple" href="https://www.dcs.gla.ac.uk/~jenright/" target="_blank">Jess Enright</a>, <a class="simple" href="https://scholar.google.com/citations?user=g7UeQLYAAAAJ&hl=en" target="_blank">Laura Larios-Jones</a>, <a class="simple" href="http://www.dcs.gla.ac.uk/~kitty/" target="_blank">Kitty Meeks</a>, <a class="simple" href="https://arxiv.org/search/?query=Yates,Ella&searchtype=author" target="_blank">Ella Yates</a>; <br> <i>Theoretical Computer Science</i>1088 (2026), also <i> ALGOWIN 2025.</i> 
-        [<a class="simple" href="https://doi.org/10.1016/j.tcs.2026.116270" target="_blank">doi</a>, <a class="simple" href="https://doi.org/10.1007/978-3-032-09120-8_2" target="_blank">conf</a>, <a class="simple" href="https://arxiv.org/abs/2507.17541" target="_blank">arXiv</a>] </i> </summary>
-
-        <a> 
-        <blockquote><small><p>
-        <img border="10" alt="figure" src="https://fskerman.github.io/TempMod.png" width="400">. <!--height="150"-->
-        </a>
-        <font color="grey">  
-        
-        Modularity introduced by Newman and Girvan (<a class="simple" href="http://arxiv.org/abs/cond-mat/0308217" target="_blank">link</a>) is a popular metric in community detection.<br>  <br>  
-
-        In this paper we study temporal modularity via the lens of fixed parameter tractability.
-        <br>  <br>  
-
-        </font> </a></small></blockquote>
-  </details></p>
-
-      <p><details >
-        <summary > 22. <a class="simple" href="https://arxiv.org/abs/2311.06875" target="_blank">On graphs with modularity zero or near-zero</a>   with <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a>;<br> <i> Electronic Journal of Combinatorics</i>, 33 3 (2026).  
-            [<a class="simple" href="https://doi.org/10.37236/12644" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/2311.06875" target="_blank">arXiv</a>] </i> </summary>
-
-        
-        <a> 
-        <blockquote><small><p>
-        <!--<img border="10" alt="figure" src="ModExBpng.png" width="100" height="150"> -->
-        </a>
-        <font color="grey">  
-        
-        Modularity introduced by Newman and Girvan (<a class="simple" href="http://arxiv.org/abs/cond-mat/0308217" target="_blank">link</a>) is a popular metric in community detection.<br>  <br>  
-
-        It is known that complete graphs and complete multipartite graphs have modularity zero.
-        We show that the least number of edges we may delete from the complete graph $K_n$ to obtain a graph with non-zero modularity is $\lfloor n/2\rfloor +1$. Similarly we determine the least number of edges we may delete from or add to a complete bipartite graph to reach non-zero modularity.  We give some corresponding results for complete multipartite graphs, and a short proof that complete multipartite graphs have modularity zero.
-        <br>  <br>  
-
-        We also analyse the modularity of very dense random graphs, and in particular
-        we find that there is a transition to modularity zero when the average degree
-        of the complementary graph drops below 1.<br>  
-
-        </font> </a></small></blockquote>
-  </details></p>
-
-
-
-
-
-<p><details >
-    <summary > 21. <a class="simple" href="https://arxiv.org/abs/2605.10911" target="_blank">The stochastic block model has the overlap graph property for modularity
-</a>   with <a class="simple" href="https://shankarbhamidi.web.unc.edu/" target="_blank">Shankar Bhamidi</a>, <a class="simple" href="https://web.mit.edu/gamarnik/www/home.html" target="_blank">David Gamarnik</a>, <a class="simple" href="https://rhofstad.win.tue.nl/" target="_blank">Remco van der Hofstad</a>, <a class="simple" href="https://www.tue.nl/en/research/researchers/nelly-litvak/" target="_blank">Nelly Litvak</a>, <a class="simple" href="http://www.math.ryerson.ca/~pralat/" target="_blank"> Paweł Prałat</a> and <a class="simple" href="https://arxiv.org/search/cs?searchtype=author&query=Tousinejad,+Y" target="_blank">Yasmin Tousinejad</a>; <br> <i> ICALP 2026.</i> 
-        [<a class="simple" href="https://doi.org/10.4230/LIPIcs.ICALP.2026.28" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/2605.10911" target="_blank">arXiv</a>] </i>  </summary>
-
-        <a> 
-        <blockquote><small><p>
-        <img border="10" alt="figure" src="https://fskerman.github.io/OGPmountains.png" width="400">
-        </a>
-        <font color="grey">  
-        
-
-        The overlap gap property (OGP) is a statement about the geometry of near-optimal solutions. Exhibiting OGP implies failure of a class of local algorithms; and has been observed to coincide with conjectured algorithmic limits in problems with statistical computational gap. <br> <br> 
-
-
-    
-        We consider the Stochastic Block Model (SBM), where the graph has a planted partition with $k$ equal-size blocks which form the `communities', and where, for parameters $p>q$, vertices within the same community connect with probability $p$, while vertices in different communities connect with probability $q$, independently across pairs of vertices. Modularity--based clustering algorithms have become ubiquitous in applications. This article studies theoretical limits of local algorithms based on the modularity score on the SBM.<br> <br> 
-
-
-
-        We establish that modularity exhibits OGP on the SBM. This rules out a class of local algorithms based on modularity for recovery in the SBM, and shows slow mixing time for a related Markov Chain.  Theoretically this is one of the few instances where OGP has been established for a `planted' model, as most such analyses to date consider the `null' model.<br> <br> 
-
-
-        <!---As part of our analysis, we extend a result by Bickel and Chen 2009, who established that with high probability, the modularity optimal partition of SBM is $o(n)$ local moves away from the planted partition, where $n$ is the graph size. We show that, with high probability, any partition with modularity score sufficiently near the optimal value is close to the planted partition.--->
-
-
-        <br>  <br>  
-
-        </font> </a></small></blockquote>
-  </details></p>
-
-
-
-
-
-
-<details>
-      <summary > 20. <a class="simple" href="https://arxiv.org/abs/2302.10148" target="_blank">Logical limit laws for Mallows random permutations</a>  with 
-            <a class="simple" href="https://www.math.rug.nl/~tobias/" target="_blank">Tobias Müller</a>  and
-            <a class="simple" href="https://arxiv.org/search/math?searchtype=author&query=Verstraaten%2C+T" target="_blank">Teun Verstraaten</a>; <br>
-            <i> Electronic Journal of Combinatorics</i>, 32 4 (2025).  
-            [<a class="simple" href="https://doi.org/10.37236/13047" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/2302.10148" target="_blank">arXiv</a>]  </summary>
-
-
-      <a> 
-      <blockquote><small><p><p>
-
-        <a class="simple" href="https://fskerman.github.io/directedcherry.png"> <img border="10" alt="figure" src="https://fskerman.github.io/directedcherry.png" width="240" height="150"> </a>
-        <font color="grey">  
-            A random permutation $\Pi_n$ of $\{1,\dots,n\}$ follows the $\DeclareMathOperator{\Mallows}{Mallows}\Mallows(n,q)$ distribution with parameter $q>0$ if $\mathbb{P} ( \Pi_n = \pi )$ is proportional to $\DeclareMathOperator{\inv}{inv} q^{\inv(\pi)}$ for all $\pi$. Here $\DeclareMathOperator{\inv}{inv} \inv(\pi) := |\{ i < j : \pi(i) > \pi(j) \}|$ denotes the number of inversions of $\pi$. We consider properties of permutations that can be expressed by the sentences of two different logical languages. Namely, the theory of one bijection ($\mathsf{TOOB}$), which describes permutations via a single binary relation, and the theory of two orders ($\mathsf{TOTO}$), where we describe permutations by two total orders. We say that the convergence law holds with respect to one of these languages if, for every sentence $\phi$ in the language, the probability $\mathbb{P} (\Pi_n\text{ satisfies } \phi)$ converges to a limit as $n\to\infty$. If moreover that limit is in the set $\{0,1\}$ for all sentences, then the zero-one law holds.<br><br>
-            
-            We will show that with respect to $\mathsf{TOOB}$ the $\Mallows(n,q)$ distribution satisfies the convergence law but not the zero-one law when $q=1$, when $0 < q < 1$ is fixed the zero-one law holds, and for fixed $q>1$ the convergence law fails.<br><br>
-            
-            We will prove that with respect to $\mathsf{TOTO}$ the $\Mallows(n,q)$ distribution satisfies the convergence law but not the zero-one law for any fixed $q\neq 1$, and that if $q=q(n)$ satisfies $1- 1/\log^*n < q < 1 + 1/\log^*n$ then $\Mallows(n,q)$ fails the convergence law. Here $\log^*$ denotes the discrete inverse of the tower function.<br><br>  
-            </font> </a></small></blockquote>
-  </details></p>
-
-
-
-    
-
-
-<p><details >
-      <summary >19. <a class="simple" href="https://arxiv.org/abs/2408.07161" target="_blank">Fast and Accurate Algorithms to Calculate Expected Modularity in Probabilistic Networks</a>   with <a class="simple" href="https://xins3.github.io/" target="_blank">Xin Shen</a>, <a class="simple" href="https://www.uu.se/en/contact-and-organisation/staff?query=N13-1077" target="_blank"> Matteo Magnani</a> and <a class="simple" href="https://user.it.uu.se/~chroh499/" target="_blank">Christian Rohner</a>; <br> <i> Scientific Reports</i>, 15 19062 (2025). 
-       [<a class="simple" href="https://doi.org/10.1038/s41598-025-99114-5" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/2408.07161" target="_blank">arXiv</a>] </i> </summary>
-
-
-
-        <a> 
-        <blockquote><small><p>
-        <!--<img border="10" alt="figure" src="ModExBpng.png" width="100" height="150"> -->
-        </a>
-        <font color="grey">  
-        
-        Modularity introduced by Newman and Girvan (<a class="simple" href="http://arxiv.org/abs/cond-mat/0308217" target="_blank">link</a>) is a popular metric in community detection.<br> <br>   
-
-        However, little research has been performed to develop efficient modularity calculation algorithms for probabilistic networks. Particularly, it is challenging to efficiently calculate expected modularity when all possible worlds are considered. <br> <br>
-
-        To address this problem, we propose two algorithms partitioning the possible worlds based on their modularities to significantly reduce the number of probability calculations. We evaluate the accuracy and time efficiency of our algorithms through comprehensive experiments.
-<br>  
-
-        </font> </a></small></blockquote>
-  </details></p>
-
-
-<p><details >
-      <summary >18. <a class="simple" href="https://arxiv.org/abs/2201.12272" target="_blank">From flip processes to dynamical systems on graphons</a>  with <a class="simple" href="http://www.cs.cas.cz/~hladky/index.html" target="_blank">Jan Hladky</a>, <a class="simple" href="https://www.cs.cas.cz/~garbe/" target="_blank">Frederik Garbe</a> and <a class="simple" href="https://sites.google.com/site/matassileikis/" target="_blank">Matas Šileikis</a>;<br> <i> Annales de l'Institut Henri Poincaré,</i> 60 4 (2024).
-        [<a class="simple" href="https://doi.org/10.1214/23-AIHP1405" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/2201.12272" target="_blank">arXiv</a>] </i> </summary>
-
-      <a> 
-      <blockquote><small><p>
-
-        <a class="simple" href="https://fskerman.github.io/flipCap.png"> <img border="10" alt="figure" src="extremist3_figb.png" width="100" height="150"> </a>
-        <font color="grey">  
-            We introduce a class of random graph processes, which we call <i>flip processes</i>. Each such process is given by a <i>rule</i> which is a function $\mathscr{R}:\mathscr{H}_k \rightarrow \mathscr{H}_k$ from all labelled $k$-vertex graphs into itself ($k$ is fixed). The process starts with a given $n$-vertex graph $G_0$. In each step, the graph $G_i$ is obtained by sampling $k$ random vertices $v_1,\ldots,v_k$ of $G_{i-1}$ and replacing the induced graph $F:=G_{i-1}[v_1,\ldots,v_k]$ by  $\mathscr{R}(F)$. This class contains several previously studied processes including the Erd\H{o}s--R\'enyi random graph process and the triangle removal process. Actually, our definition of flip processes is more general, in that $\mathscr{R}(F)$ is a probability distribution on $\mathscr{H}_k$, thus allowing randomised replacements.<br><br>
-
-            Given a flip process with a rule $\mathscr{R}$, we construct time-indexed trajectories $\Phi: \mathscr{W}_{0} \times [0,\infty)\rightarrow \mathscr{W}_{0}$ in the space of graphons. We prove that for any $T > 0$ starting with a large finite graph $G_0$ which is close to a graphon $W_0$ in the cut norm, with high probability the flip process will stay in a thin sausage around the trajectory $(\Phi(W_0,t))_{t=0}^T$ (after rescaling).<br><br>
-
-            These graphon trajectories are then studied from the perspective of dynamical systems. Among others topics, we study continuity properties of these trajectories with respect to time and initial graphon, existence and stability of fixed points and speed of convergence (whenever the infinite time limit exists). We give an example of a flip process with a periodic trajectory.<br><br>  
-
-            See also the paper <a class="simple" href="https://arxiv.org/abs/2206.03884" target="_blank">Prominent examples of flip processes</a>.
-            </font> </a></small></blockquote>
-  </details></p>
-
-
-
-<p></p><details>
-      <summary > 17. <a class="simple" href="https://arxiv.org/abs/2104.04407" target="_blank"> A branching process with deletions and mergers that matches the threshold for hypercube percolation</a> with <a class="simple" href="http://sigma.iimas.unam.mx/laura/" target="_blank">Laura Eslava</a> and <a class="simple" href="https://sarahpenington-lgtm.github.io/" target="_blank">Sarah Penington</a>; <br> <i> Annales de l'Institut Henri Poincaré</i>, 60 2 (2024). [<a class="simple" href="https://doi.org/10.1214/23-AIHP1361" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/2104.04407"target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://arxiv.org/pdf/2104.04407.pdf" target="_blank">pdf</a>] --> </summary > 
-      <a> 
-      
-      <blockquote><small><p>
-      </a> 
-      <!-----      <img border="10" alt="figure" src="constructing_subgraph.png" width="400" > </a> 
-    
-          -->
-          
-      <font color="grey">
-      We define a graph process $G(p,q)$ based on a discrete branching process with deletions and mergers, which is inspired by the 4-cycle structure of both the hypercube $Q_d$ and the lattice $\mathbb{Z}^d$ for large $d$. Individuals have Poisson offspring distribution with mean $1+p$ and certain deletions and mergers occur with probability $q$; these parameters correspond to the mean number of edges discovered from a given vertex in an exploration of a percolation cluster and to the probability that a non-backtracking path of length four closes a cycle, respectively.
-      <br>
-      <br>
-
-
-      We prove survival and extinction under certain conditions on $p$ and $q$ that heuristically match the known expansions of the critical probabilities for bond percolation on the lattice $\mathbb{Z}^d$ and the hypercube $Q_d$. These expansions have been rigorously established by Hara and Slade in 1995, and van der Hofstad and Slade in 2006, respectively. We stress that our method does not constitute a branching process proof for the percolation threshold.
-      <br>
-      <br>
-
-      The analysis of the graph process survival is considerably more challenging than for branching processes in discrete time, due to the interdependence between the descendants of different individuals in the same generation. In fact, it is left open whether the survival probability of $G(p,q)$ is monotone in $p$ or $q$; we discuss this and some other open problems regarding the new graph process.
-
-      <br>
-      <br>
-      </font> </a></small></blockquote>
-      </details></p>
-
-<p><details >
-      <summary> 16. <a class="simple" href="https://arxiv.org/abs/2312.07521" target="_blank"> Modularity and graph expansion </a> with <a class="simple" href="https://baptiste.louf.fr/" target="_blank">Baptiste Louf</a> and <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a>;<br> <i> ITCS 2024. </i> 
-        [<a class="simple" href="https://doi.org/10.4230/LIPIcs.ITCS.2024.78" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/2312.07521" target="_blank">arXiv</a>]
-
-        </i> </summary>
-
-        <a> 
-        <blockquote><small><p>
-       <a class="simple" href="https://fskerman.github.io/partitionH.pdf">
-        <img border="10" alt="figure" src="partitionH.png" width="400"> </a>
-        </a>
-        <font color="grey">  
-
-        We relate two important notions in  graph theory: expanders which are highly connected graphs, and modularity a parameter of a graph that is primarily used in community detection. More precisely, we show that a graph having modularity bounded below 1 is equivalent to it having a large subgraph which is an expander. <br>  <br>  
-
-
-        We further show that a connected component $H$ will be split in an optimal partition of the host graph $G$ if and only if the relative size of $H$ in $G$ is greater than an expansion constant of $H$. This is a further exploration of the resolution limit known for modularity, and indeed recovers the bound that a connected component $H$ in the host graph $G$ will not be split if $e(H)<\sqrt{2e(G)}$.
-
-          
-
-        </font> </a></small></blockquote>
-  </details></p>
-
-    
-
-
-
-
-
-<p></p><details>
-      <summary >15. <a class="simple" href="https://arxiv.org/abs/2012.15722" target="_blank"> Finding large expanders in graphs:  from topological minors to induced subgraphs</a> with <a class="simple" href="https://baptiste.louf.fr/" target="_blank">Baptiste Louf</a>; <br> <i> Electronic Journal of Combinatorics</i>, 30 1 (2023).  [<a class="simple" href="https://doi.org/10.37236/10859" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/2012.15722"target="_blank">arXiv</a>]  <!-- [<a class="simple" href="https://arxiv.org/pdf/2012.15722.pdf" target="_blank">pdf</a>] --> </summary > 
-      <a> 
-      
-      <blockquote><small><p>
-     
-      <img border="10" alt="figure" src="constructing_subgraph.png" width="400" > </a> 
-    
-             <!-------height="150"--- [Electron. J. Com- bin. 26 (2019), P1.44] 
-
-          -->
-            
-      <font color="grey">
-      A structural and geometric property of graphs is the presence of large expanders. The problem of finding such structures was considered by Krivelevich <a class="simple" href="https://arxiv.org/abs/1704.00465" target="_blank"> in this paper</a>. Here, we show that the problem of finding a large induced subgraph that is an expander can be reduced to the simpler problem of finding a topological minor that is an expander.  Our proof is constructive, which is helpful in an algorithmic setting.<br><br>  
-
-      We also show that every large subgraph of an expander graph contains a large subgraph which is itself an expander.
-      <br>
-      </font> </a></small></blockquote>
-      </details></p>
-
-  
-  <p></p><details>
-      <summary >14. <a class="simple" href="https://arxiv.org/abs/1912.04243" target="_blank"> No additional tournaments are quasirandom-forcing</a> with <a class="simple" href="https://sites.google.com/view/robert-hancock/" target="_blank">Robert Hancock</a>, <a class="simple" href="https://sites.google.com/view/adamkabela/" target="_blank">Adam Kabela</a>, <a class="simple" href="http://www.ucw.cz/~kral/index.html.en" target="_blank">Dan Kráľ</a>, <a class="simple" href="http://www.professores.uff.br/tlmartins/" target="_blank">Taísa Martins</a>, <a class="simple" href="https://scholar.google.co.uk/citations?user=YPKQtYIAAAAJ&hl=nl" target="_blank">Roberto Parente</a> and <a class="simple" href="http://honza.ucw.cz/" target="_blank">Jan Volec</a>; <br> <i> European Journal of Combinatorics</i>, 108 (2023). [<a class="simple" href="https://doi.org/10.1016/j.ejc.2022.103632" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/1912.04243"target="_blank">arXiv</a>, <a class="simple" href="Tourns.pdf" target="_blank">slides</a>] </summary > 
-      <a> 
-      <blockquote><small><p>
-     <img border="10" alt="figure" src="monster.png" height="150"> </a> 
-
-            
-      <font color="grey"> 
-      
-      A tournament $H$ is quasirandom-forcing if the following holds for every sequence $(G_n)_{n}$ of tournaments of growing orders: if the density of $H$ in $G_n$ converges to the expected density of $H$ in a random tournament, then $(G_n)_n$ is quasirandom. Every transitive tournament with at least 4 vertices is quasirandom-forcing <a class="simple" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jgt.22044" target="_blank"> (link)</a>, and Coregliano et al. showed that there is also a non-transitive 5-vertex tournament with the property <a class="simple" href="https://arxiv.org/abs/1505.05200" target="_blank"> (link)</a>. We show that no additional tournament has this property.
-      <br>
-      </font> </a></small></blockquote>
-      </details></p>
-
-    <p><details >
-      <summary >13. <a class="simple" href="https://arxiv.org/abs/2212.10872" target="_blank">Is it easier to count communities than find them?</a>  with <a class="simple" href="https://scholar.google.com/citations?user=BbREwkIAAAAJ&hl=en" target="_blank">Cynthia Rush</a>, 
-          <a class="simple" href="https://www.alex-wein.com/" target="_blank">Alex Wein</a> and
-          <a class="simple" href="https://danayang.github.io/" target="_blank">Dana Yang</a>;<br> <i>Random Structures & Algorithms</i> 68 4 (2026) + <i> ITCS 2023. </i> 
-        [<a class="simple" href="https://doi.org/10.1002/rsa.70071" target="_blank">doi</a>,
-        <!-- <a class="simple" href="https://doi.org/10.4230/LIPIcs.ITCS.2023.94" target="_blank">doi</a>, -->  
-        <a class="simple" href="https://arxiv.org/abs/2212.10872" target="_blank">arXiv</a>] 
-    </i> </summary>
-
-      <a> 
-      <blockquote><small><p>
-
-        <!--<a class="simple" href="https://fskerman.github.io/flipCap.png"> <img border="10" alt="figure" src="extremist3_figb.png" width="100" height="150"> </a>-->
-        <font color="grey">  
-            Random graph models with community structure have been studied extensively in the literature. For both the problems of detecting and recovering community structure, an interesting landscape of statistical and computational phase transitions has emerged. A natural unanswered question is: might it be possible to infer properties of the community structure (for instance, the number and sizes of communities) even in situations where actually finding those communities is believed to be computationally hard? We show the answer is no. In particular, we consider certain hypothesis testing problems between models with different community structures, and we show (in the low-degree polynomial framework) that testing between two options is as hard as finding the communities.<br><br>
-
-            Our methods give the first computational lower bounds for testing between two different `planted' distributions, whereas previous results have considered testing between a planted distribution and an i.i.d. `null' distribution.<br><br>
-
-            In addition we show that under the low-degree framework any estimation problem in a signal plus noise model has an equivalent testing problem for testing between two planted models.   
-
-            </font> </a></small></blockquote>
-      </details></p>
-
-
-    <p></p><details>
-      <summary >12. <a class="simple" href="https://arxiv.org/abs/2104.01041" target="_blank"> The modularity of random graphs on the hyperbolic plane</a> with <a class="simple" href="https://arxiv.org/search/math?searchtype=author&query=Chellig%2C+J" target="_blank">Jordan Chellig</a> and <a class="simple" href="http://web.mat.bham.ac.uk/N.Fountoulakis/" target="_blank">Nikolaos Fountoulakis</a>; <br> <i> Journal of Complex Networks</i>, 10 1 (2022). [<a class="simple" href="https://doi.org/10.1093/comnet/cnab051" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/2104.01041"target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://arxiv.org/pdf/2104.01041.pdf" target="_blank">pdf</a>] --> </summary > 
-      <a> 
-      
-      <blockquote><small><p>
-      </a> 
-      <!-----      <img border="10" alt="figure" src="constructing_subgraph.png" width="400" > </a> 
-    
-          -->
-          
-      <font color="grey">
-      Modularity is a quantity which has been introduced in the context of complex networks in order to quantify how close a network is to an ideal modular network in which the nodes form small interconnected communities that are joined together with relatively few edges. In this paper, we consider this quantity on a recent probabilistic model of complex networks introduced by Krioukov et al. (Phys. Rev. E 2010).
-
-      <br>
-      <br>
-      This model views a complex network as an expression of hidden hierarchies, encapsulated by an underlying hyperbolic space. For certain parameters, this model was proved to have typical features that are observed in complex networks such as power law degree distribution, bounded average degree, clustering coefficient that is asymptotically bounded away from zero, and ultra-small typical distances.<br><br>
-
-      We that hyperbolic random graphs have modularity $1-o(1)$ with probability tending to one as the number of vertices tends to infinity. The modularity of any graph lies in the interval $[0,1)$ with values nearer to $1$ taken to indicate a higher level of community structure within the graph. 
-      <br>
-      </font> </a></small></blockquote>
-      </details></p>
-
-
-
-  <p><details>
-
-      <summary >11. <a class="simple" href="https://arxiv.org/abs/1802.05905" target="_blank"> Assigning times to minimise reachability in temporal graphs </a> with <a class="simple" href="https://www.dcs.gla.ac.uk/~jenright/" target="_blank">Jess Enright</a> and <a class="simple" href="http://www.dcs.gla.ac.uk/~kitty/" target="_blank">Kitty Meeks</a>; <br> <i> Journal of Computer and System Sciences</i>, 115 (2022). [<a class="simple" href="https://doi.org/10.1016/j.jcss.2020.08.001" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/1802.05905" target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://arxiv.org/pdf/1802.05905.pdf" target="_blank">pdf</a>] --> </summary > 
-      <a> 
-      <blockquote><small><p>
-     <img border="10" alt="figure" src="Scotcow.jpg" height="150"> </a> 
-
-            
-      <font color="grey"> 
-      
-      Temporal graphs, in which edges are active at specified times, are of relevance for spreading processes on graphs. In our setting the number of active times for each edge is fixed, but we can change the relative order in which (sets of) edges are active. We investigate the problem of determining an ordering of edges that minimises the maximum number of vertices reachable from any single starting vertex. Epidemiologically, this corresponds to the worst-case number of vertices infected in a single disease outbreak. 
-      <br>
-      </font> </a></small></blockquote>
-      </details></p>
-
-<p><details>
-      <summary >10. <a class="simple" href="https://arxiv.org/abs/1807.06965" target="_blank">The parameterised complexity of computing the maximum modularity of a graph </a> with <a class="simple" href="http://www.dcs.gla.ac.uk/~kitty/" target="_blank">Kitty Meeks</a>; <br> <i> Algorithmica</i>, 82 8 (2020) <i> + IPEC 2018</i>. [<a class="simple" href="https://doi.org/10.1007/s00453-019-00649-7" target="_blank">doi</a>, <a class="simple" href="http://drops.dagstuhl.de/opus/volltexte/2019/10210/pdf/LIPIcs-IPEC-2018-9.pdf" target="_blank">IPEC</a>, <a class="simple" href="https://arxiv.org/abs/1807.06965" target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://arxiv.org/pdf/1807.06965.pdf" target="_blank">pdf</a>] --> </summary > 
-      <a> 
-      <blockquote><small><p>
-     <img border="10" alt="figure" src="funtree.jpg" width="100" height="150"> </a> 
-
-             <!--- <img border="10" alt="figure" src="treeEmbed.png" width="90" height="90"> We show that the problem belongs to FPT when parameterised by the size of a minimum vertex cover for G, and is solvable in polynomial time whenever the treewidth or max leaf number of G is bounded by some fixed constant; we also obtain an FPT algorithm, parameterised by treewidth, to compute a multiplicative approximation to the maximum modularity. <br> 
-             <td></td><td width="145">  </a> </td><td valign="top" style="padding:10px">
-
-              International Symposium on Parameterized & Exact Computation
-
-           -->
-            
-      <font color="grey"> 
-      <!---The maximum modularity of a graph is a parameter widely used to describe the level of clustering or community structure in a network. -->
-      Determining the maximum modularity of a graph is known to be NP-complete in general, even to find a multiplicative approximation, but we show it has reduced complexity with respect to some structural parameterisations of the input graph. <br>
-      <br>
-      On the other hand we prove modularity is W[1]-hard (and hence unlikely to admit an FPT algorithm) when parameterised simultaneously by pathwidth and the size of a minimum feedback vertex set.
-      </font> </a></small></blockquote>
-      </details></p>
-
-
-
-
-<p><details><summary >9. <a class="simple" href="https://arxiv.org/abs/1901.02328" target="_blank">Embedding Small Digraphs and Permutations in Binary Trees and Split Trees</a> with <a class="simple" href="https://www.otago.ac.nz/school-of-computing/our-people/michael_albert" target="_blank">Michael Albert</a>, <a class="simple" href="https://katalog.uu.se/profile/?id=N5-824" target="_blank">Cecilia Holmgren</a> and <a class="simple" href="https://scholar.google.ca/citations?hl=en&user=xNdnHVIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Tony Johansson</a>; <br> <i> Algorithmica</i>, 82 3 (2020). [<a class="simple" href="https://doi.org/10.1007/s00453-019-00667-5" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/1901.02328" target="_blank">arXiv</a>, <a class="simple" href="https://fskerman.github.io/permTalk-Haifa.pdf" target="_blank">slides</a>]
-</summary > 
-      
-    <!--<i> + conference Analysis of Algorithms (2018). - Haifa 2020</i> -->
-    <a><blockquote><small><p>
-    <img border="10" alt="figure" src="treeEmbed.png" width="90" height="90"> </a>
-    <font color="grey"> 
-    Given a tree on $n$ vertices, we randomly label the vertices 1 to $n$. An occurence of a length $k$ permutation $\sigma$ is a sequence of vertices on a common descending path in the tree whose labels, when read from root to leaf, are ordered according to $\sigma$. We calculate the number of occurences of fixed length permutations in binary trees and split trees. <br> 
-
-    For the trees considered, this generalizes the inversion results below from $\sigma=21$ to more general permutations $\sigma$. <br><br> 
-
-    Conference version: Permutations in binary trees and split trees <a class="simple" href="http://drops.dagstuhl.de/opus/volltexte/2018/8902/pdf/LIPIcs-AofA-2018-9.pdf" target="_blank">AofA</a>
-  </font></a></small></blockquote>
-</details></p>
-
-
-  <p><details >
-      <summary >8. <a class="simple" href="https://arxiv.org/abs/1808.02243" target="_blank">Modularity of Erdos-Renyi random graphs</a>  with <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a>;<br> <i> Random Structures and Algorithms</i>, 57 1 (2020)
-        [<a class="simple" href="https://doi.org/10.1002/rsa.20910" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/1808.02243" target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://arxiv.org/pdf/1808.02243.pdf" target="_blank">pdf</a>] -->  </i> </summary>
-
-      <a> 
-      <blockquote><small><p>
-        <img border="10" alt="figure" src="ModExBpng.png" width="100" height="150"> </a>
-        <font color="grey">  <!-- Clustering algorithms for large networks typically use the modularity score to compare which partitions better represent modular structure in the data. Given a network, the modularity of a partition of the vertex set is a number in [0, 1) which measures the extent to which edge density is higher within parts than between parts; and the modularity of the network is the maximum modularity of any partition.
-
-        Also as a conference paper <i>Analysis of Algorithms (2018)
-         --> 
-          Modularity introduced by Newman and Girvan <a class="simple" href="http://arxiv.org/abs/cond-mat/0308217" target="_blank">(in this paper)</a> is a popular metric in community detection.<br> 
-          
-          Two key features which we find for Erdos-Renyi random graphs are that the modularity is $1+o(1)$ with high probability (whp) for $np$ up to $1+o(1)$ (and no further); and when $np\geq 1$ and $p$ is bounded below 1, it has order $(np)^{-1/2}$ whp, in accord with a conjecture by Reichardt and Bornholdt in 2006 (and disproving another conjecture from the physics literature).<br><br>
-
-          </i> Conference version: <a class="simple" href="http://drops.dagstuhl.de/opus/volltexte/2018/8924/pdf/LIPIcs-AofA-2018-31.pdf" target="_blank">AofA</a> </font> </a></small></blockquote>
-  </details></p>
-
-
-<p><details ><summary>7. <a class="simple" href="https://arxiv.org/abs/1808.03019" target="_blank">Random tree recursions: which fixed points correspond to tangible sets of trees?</a> with <a class="simple" href="https://www.math.csi.cuny.edu/~tobiasljohnson/" target="_blank">Toby Johnson</a> and <a class="simple" href="https://scholar.google.com/citations?user=z7wxJS4AAAAJ&hl=en" target="_blank">Moumanti Podder</a>;<br> <i> Random Structures and Algorithms</i>, 56 3 (2020). [<a class="simple" href="https://doi.org/10.1002/rsa.20895" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/1808.03019" target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://arxiv.org/pdf/1808.03019.pdf" target="_blank">pdf</a>] --> </summary> 
-  <blockquote><small><img border="10" alt="figure" src="fpplot.png" width="130" height="100"><font color="grey">We answer the following question of Joel Spencer:<br>
-  Say that a set of trees $B$ follows the at-least-two rule if $t \in B$
-  if and only if the root of $t$ has two children $u$ and $v$ such that the subtrees rooted at $u$ and $v$ are also in $B$. Suppose that $\lambda > \lambda_{crit}$. Does there exist a set of trees $B$ with this metaproperty such that for random tree $T_\lambda$, we have that $\mathbb{P}[T_\lambda \in B]$ is the middle solution of the classical fixed point equation? </font> </a></small></blockquote>
-</details></p>
-
-
-<p><details><summary >6. <a class="simple" href="https://arxiv.org/abs/1804.03069" target="_blank">$k$ cuts on paths and some trees</a> with <a class="simple" href="https://newptcai.gitlab.io/" target="_blank">Xing Shi Cai</a>, <a class="simple" href="https://katalog.uu.se/profile/?id=N5-824" target="_blank">Cecilia Holmgren</a> and <a class="simple" href="http://luc.devroye.org/" target="_blank">Luc Devroye</a>;<br> <i> Electronic Journal of Probability</i>, 24 (2019). [<a class="simple" href="https://doi.org/10.1214/19-EJP318" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/1804.03069" target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://arxiv.org/pdf/1804.03069.pdf" target="_blank">pdf</a>] --> </summary > 
-    
-    <a><blockquote><small><p>
-    <img border="10" alt="figure" src="scissors.png" width="90" height="90"> </a> 
-    <font color="grey">  
-    We define a new cutting process on trees the `blunt scissors' or $k$-cut model where each node must be cut $k$ times before it is destroyed. For $k=1$ this is the model of Meir and Moon. This paper studies the distribution of the $k$-cut number of a path on $n$ vertices.  </font></a></small></blockquote>
-            <!--CIAC 2019 International Conference on Algorithms and Complexity https://link.springer.com/chapter/10.1007/978-3-030-17402-6_10 -->
-</details></p>    
-
-
-<p><details><summary >5. <a class="simple" href="https://arxiv.org/abs/1709.00216" target="_blank">Inversions in split trees and Galton-Watson trees</a> with <a class="simple" href="https://newptcai.gitlab.io/" target="_blank">Xing Shi Cai</a>, <a class="simple" href="https://katalog.uu.se/profile/?id=N5-824" target="_blank">Cecilia Holmgren</a>, <a class="simple" href="http://www2.math.uu.se/~svante/papers/index.html" target="_blank">Svante Janson</a> and <a class="simple" href="https://scholar.google.ca/citations?hl=en&user=xNdnHVIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Tony Johansson</a>;<br> <i> Combinatorics, Probability and Computing</i>, 28 3 (2019). [<a class="simple" href="https://doi.org/10.1017/S0963548318000512" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/1709.00216" target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://arxiv.org/pdf/1709.00216.pdf" target="_blank">pdf</a>] --> </summary > 
-
-    <a><blockquote><small><p>
-    <img border="10" alt="figure" src="inverted.jpg" width="90" height="90"> </a> 
-    <font color="grey">  
-    We study $I(T)$, the number of inversions in a tree $T$ with its vertices labeled uniformly at random, which is a generalization of inversions in permutations. We first show that the
-    cumulants of $I(T)$ have explicit formulas involving the $k$-total common ancestors of $T$ (an
-    extension of the total path length). For three sequence of trees $T_n$ we consider $X_n$ the normalized version of $I(T_n)$.<br><br> 
-
-    We identify the limit of $X_n$ for complete $b$-ary trees. For
-    $T_n$ being split trees, we show that $X_n$ converges to the unique solution of a distributional
-    equation and when $T_n$’s are conditional Galton–Watson trees, we show that $X_n$ converges to a random variable defined in terms of Brownian excursions. By exploiting the connection
-    between inversions and the total path length, we extend earlier results by Panholzer and Seitz. <br><br>
-
-    Conference version: [<a class="simple" href="http://drops.dagstuhl.de/opus/volltexte/2018/8908/pdf/LIPIcs-AofA-2018-15.pdf" target="_blank">AofA</a>]
-    </font></a></small></blockquote>
-
-    <!-- + conference Analysis of Algorithms (2018) -->
-
-</details></p>
-
-<p><details><summary >4. <a class="simple" href="https://arxiv.org/abs/1606.09101" target="_blank">Modularity of regular and treelike graphs</a> with <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a>;<br> <i>  Journal of Complex Networks</i>, 6 4 (2018)  [<a class="simple" href="https://doi.org/10.1093/comnet/cnx046" target="_blank">doi</a>, <a class="simple" href="https://arxiv.org/abs/1606.09101" target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://arxiv.org/pdf/1606.09101.pdf" target="_blank">pdf</a>] --> </summary > 
-            
-      <a><blockquote><small><p>
-      <a class="simple" href="https://fskerman.github.io/tw-figure.pdf"> <img border="10" alt="figure" src="tw-thumb.png" width="90" height="90"> </a> 
-
-      <font color="grey">  <!-- Clustering algorithms for large networks typically use the modularity score to compare which partitions better represent modular structure in the data. Given a network, the modularity of a partition of the vertex set is a number in [0, 1) which measures the extent to which edge density is higher within parts than between parts; and the modularity of the network is the maximum modularity of any partition. --> Modularity introduced by Newman and Girvan <a class="simple" href="http://arxiv.org/abs/cond-mat/0308217" target="_blank">(in this paper)</a> is a popular metric in community detection.<br> <br> 
-      We show that random cubic graphs usually have modularity in the interval (0.666, 0.804); and random $r$-regular graphs for large $r$ usually have modularity $\Theta(1/\sqrt{r})$. Our results give thresholds for the statistical significance of clustering found in large regular networks.<br><br> 
-      The modularity of cycles and low degree trees is known to be asymptotically 1. We extend these results to all graphs whose product of treewidth and maximum degree is much less than the number of edges. This shows for example that random planar graphs typically have modularity close to 1. </font></a></small></blockquote>
-</details></p>
-           
-
-
-
-<p><details><summary >3. <a class="simple" href="https://fskerman.github.io/gnCnU.pdf" target="_blank">Guessing Numbers of Odd Cycles</a> with <a class="simple" href="https://www.maths.ox.ac.uk/about-us/life-oxford-mathematics/oxford-mathematics-alphabet/j-juggling" target="_blank">Ross Atkins</a>  and <a class="simple" href="https://puckrombach.com/" target="_blank">Puck Rombach</a>;<br> <i> Electronic Journal of Combinatorics</i>, 24 1 (2017). [<a class="simple" href="http://www.combinatorics.org/ojs/index.php/eljc/article/view/v24i1p45" target="_blank">doi</a>, <a class="simple" href="http://arxiv.org/abs/1602.03586" target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://https://fskerman.github.io/gnCnU.pdf" target="_blank">pdf</a>] --> </summary > 
-
-            <a><blockquote><small><p>
-            <a class="simple" href="https://fskerman.github.io/protoCappng.png"> <img border="0" alt="protocol" src="protocolpng.png" width="90" height="90"> </a> 
-
-            
-            <font color="grey">  
-              For a given number of colours, $s$, the guessing number of a graph is the base $s$ logarithm
-              of the size of the largest family of colourings of the vertex set of the graph such that the colour
-              of each vertex can be determined from the colours of the vertices in its neighbourhood. We show that, for any given
-              integer $s \geq 2$, if $a$ is the largest factor of $s$ less than or equal to $\sqrt{s}$, for sufficiently large odd $n$,
-              the guessing number of the cycle $C_n$ with $s$ colours is $(n -1)/2 + \log_s (a)$. This answers a question posed <a class="simple" href="http://www.combinatorics.org/ojs/index.php/eljc/article/view/v18i1p192" target="_blank"> in this paper</a> by
-              Christofides and Markstrom in 2011.</font></a></small></blockquote></details></p>            
-
- 
-
-<p><details><summary >2. <a class="simple" href="http://intlpress.com/site/pub/pages/journals/items/joc/content/vols/0007/0001/a002/index.html" target="_blank">Degree sequences of random digraphs and bipartite graphs</a> with <a class="simple" href="http://users.cecs.anu.edu.au/~bdm/" target="_blank">Brendan McKay</a>; <br><i> Journal of Combinatorics</i>, 7 1 (2016). [<a class="simple" href="https://dx.doi.org/10.4310/JOC.2016.v7.n1.a2" target="_blank">doi</a>, <a class="simple" href="http://arxiv.org/abs/1302.2446" target="_blank">arXiv</a>] [<a class="simple" href="https://fskerman.github.io/JOC-U.pdf" target="_blank">pdf</a>]</summary > 
-            
-              
-            <a><blockquote><small><p>
-            <a> <img border="0" alt="bipartitepng" src="bipartitepng.png" width="90" height="90"> </a> 
-            
-            <font color="grey">  We investigate the joint distribution of the vertex degrees in three models of random bipartite graphs. Namely, we can choose each edge with a specified probability, choose a specified number of edges, or specify the vertex degrees in one of the two colour classes. <!-- This problem can alternatively be described in terms of the row and sum columns of random binary matrix or the in-degrees and out-degrees of a random digraph, in which case we can optionally forbid loops. It can also be cast as a problem in random hypergraphs, or as a classical occupancy, allocation, or coupon collection problem.--> <br> 
-              <br> 
-
-            In each case, provided the two colour classes are not too different in size nor the number of edges too low, we define a probability space based on independent binomial variables and show that its probability masses asymptotically equal those of the degrees in the graph model almost everywhere. The accuracy is sufficient to asymptotically determine the expectation of any joint function of the degrees whose maximum is at most polynomially greater than its expectation.  
-
-</font></a></small></blockquote> <br> 
-</details></p>            
- 
-            <!--  Mirjana Mikalački Balázs Patkós pp. 145-160
-              Eurocomb link: https://link.springer.com/chapter/10.1007/978-88-7642-475-5_60
-              DMTCS abstract : https://dmtcs.episciences.org/2124/
-              DMTCS pdf : https://dmtcs.episciences.org/2124/pdf
-            -->
-
-<p><details><summary >1.<a class="simple" href="http://arxiv.org/abs/1302.2555" target="_blank"> Avoider-Enforcer Star Games </a>with <a class="simple" href="https://scholar.google.com/citations?user=Ceb4FwcAAAAJ" target="_blank">Andrzej Grzesik</a>, <a class="simple" href="http://people.dmi.uns.ac.rs/~mima/" target="_blank">Mirjana Mikalački</a>, <a class="simple" href="https://nagyzoli.web.elte.hu/" target="_blank">Zoltán Nagy</a>, <a class="simple" href="https://dblp.org/pers/n/Naor:Alon.html" target="_blank">Alon Naor</a>, <a class="simple" href="http://www.renyi.hu/~patkos/" target="_blank">Balázs Patkós</a>; <br> <i> Discrete Mathematics and Theoretical Computer Science</i>, 17 1 (2015). [<a class="simple" href="https://dmtcs.episciences.org/2124/" target="_blank">doi</a>, <a class="simple" href="http://arxiv.org/abs/1302.2555" target="_blank">arXiv</a>] <!-- [<a class="simple" href="https://dmtcs.episciences.org/2124/pdf" target="_blank">pdf</a>] --> </summary > 
-            
-      <a><blockquote><small><p>
-      <a><img src="star.png" width="90"> 
-
-      <font color="grey"> In this paper, we study $(1 : b)$ Avoider-Enforcer games played on the edge set of the complete graph on n vertices.
-      For every constant $k \geq 3$ we analyse the $k$-star game, where Avoider tries to avoid claiming $k$ edges incident to
-      the same vertex. We consider both versions of Avoider-Enforcer games - the strict and the monotone - and for each
-      provide explicit winning strategies for both players. We determine the order of magnitude of the threshold biases
-      $f_\mathcal{F}^{mon}$, $f_\mathcal{F}^{-}$ and $f_\mathcal{F}^{+}$, where $\mathcal{F}$ is the hypergraph of the game.
-      </font></a></small></blockquote> <br> 
-</details></p>   
-
-<br>
-
- <h3> Online Talks </h3>
-
-        (55 min) Testing between planted distributions and connections to recovery. 
-         <i> MSRI / SLMath Apr. 2025 </i> [<a class="simple"  href="https://player.vimeo.com/video/1077410962" target="_blank">video</a>] <br>
-       
-        <!-- Testing between planted distributions and connections to recovery
-        https://www.slmath.org/workshops/1098  workshop on Network estimation and reconstruction, -->
- 
-        (20 min) Modularity and Graph Expansion.
-        <i> ITCS, Jan. 2024 </i> [<a class="simple"  href="https://www.youtube.com/watch?v=HdTJofXTYuk" target="_blank">video</a>] [<a class="simple"  href="https://fskerman.github.io/ITCS_slides_ModExp.pdf" target="_blank">slides</a>] <br>
-
-        
-        (25 min) Is it easier to count communities than find them?
-        <i> ITCS, Jan. 2023 </i> [<a class="simple"  href="https://www.youtube.com/watch?v=ToMEPZTn7sE" target="_blank">video</a>] <br>
-
-
-        (55 min) Partially observing graphs, when can we infer community structure? 
-        <i> Topos Institute, Dec. 2021 </i> [<a class="simple"  href="https://www.youtube.com/watch?v=BqZTao8WSA0" target="_blank">video</a>] <br>
-
-        
-        (20 min) Modularity and Edge Sampling.
-        <i> Banff, Aug. 2021 </i> [<a class="simple"  href="http://archytas.birs.ca/events/2021/5-day-workshops/21w5108/videos/watch/202108090846-Skerman.html" target="_blank">video</a>] [<a class="simple"  href="https://fskerman.github.io/BIRS-Skerman.pdf" target="_blank">slides</a>]<br><br>
-
-        <!---
-        workshop on Random Graphs and Statistical Inference
-
-         <h4> Online Talks given by coauthors </h4>
-
-        
-        https://www.youtube.com/watch?v=ZKLJzYcysEo , Jan Hladky (CAS): Flip processes on finite graphs and dynamical systems they induce on graphons, EPC-Webinar.
-
-         https://www.youtube.com/watch?v=oV1ZM1dRBlk&t=1617s
-         Taisa Martins - Quasirandom tournaments (in Portugese!)
-
-
-        Percolation Today Elsava Penington 
-        https://percolation.ethz.ch/zoom-talks/l-eslava-s-penington-a-branching-process-with-deletions-and-mergers-that-matches-the-threshold-for-hypercube-percolation/
-        A branching process with deletions and mergers that matches the threshold for hypercube percolation
-
-
-        -->
-        
-
- <h3> Collaborators </h3>
-
-        
-        <p></p> 
-        <a class="simple" href="https://github.com/vagdur" target="_blank">Vilhelm Agdur</a> (2),
-        <a class="simple" href="https://www.otago.ac.nz/school-of-computing/our-people/michael_albert" target="_blank">Michael Albert</a>, 
-        <a class="simple" href="https://www.maths.ox.ac.uk/outreach/oxford-mathematics-alphabet/j-juggling" target="_blank">Ross Atkins</a>, 
-        <a class="simple" href="https://shankarbhamidi.web.unc.edu/" target="_blank">Shankar Bhamidi</a>, 
-        <a class="simple" href="https://newptcai.gitlab.io/" target="_blank">Xing Shi Cai</a> (2),
-        <a class="simple" href="https://arxiv.org/search/math?searchtype=author&query=Chellig%2C+J" target="_blank">Jordan Chellig</a>, 
-        <a class="simple" href="http://luc.devroye.org/" target="_blank">Luc Devroye</a>, 
-        <a class="simple" href="https://www.dcs.gla.ac.uk/~jenright/" target="_blank">Jess Enright</a> (2), 
-        <a class="simple" href="http://sigma.iimas.unam.mx/laura/" target="_blank">Laura Eslava</a>, 
-        <a class="simple" href="https://scholar.google.com/citations?user=fGuQBikAAAAJ&hl=en" target="_blank">Victor Falgas-Ravry</a>,
-        <a class="simple" href="http://web.mat.bham.ac.uk/N.Fountoulakis/" target="_blank">Nikolaos Fountoulakis</a>,
-        <a class="simple" href="https://web.mit.edu/gamarnik/www/home.html" target="_blank">David Gamarnik</a>, 
-        <a class="simple" href="https://www.cs.cas.cz/~garbe/" target="_blank">Frederik Garbe</a>, 
-        <a class="simple" href="https://scholar.google.com/citations?user=Ceb4FwcAAAAJ" target="_blank">Andrzej Grzesik</a>,
-        <a class="simple" href="https://www.uu.se/en/contact-and-organisation/staff?query=N23-1677" target="_blank">Daniel Gutierrez Espinoza</a>,
-        <a class="simple" href="https://sites.google.com/view/robert-hancock/" target="_blank">Robert Hancock</a>, 
-        <a class="simple" href="http://www.cs.cas.cz/~hladky/index.html" target="_blank">Jan Hladky</a>, 
-        <a class="simple" href="https://rhofstad.win.tue.nl/" target="_blank">Remco van der Hofstad</a>, 
-        <a class="simple" href="https://katalog.uu.se/profile/?id=N5-824" target="_blank">Cecilia Holmgren</a> (3), 
-        <a class="simple" href="http://www2.math.uu.se/~svante/papers/index.html" target="_blank">Svante Janson</a> (2), 
-        <a class="simple" href="https://scholar.google.ca/citations?hl=en&user=xNdnHVIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Tony Johansson</a> (2), 
-        <a class="simple" href="https://www.math.csi.cuny.edu/~tobiasljohnson/" target="_blank">Toby Johnson</a>, 
-        <a class="simple" href="https://sites.google.com/view/adamkabela/" target="_blank">Adam Kabela</a>, 
-        <a class="simple" href="https://sites.google.com/view/ninakamcev/" target="_blank">Nina Kamčev</a>, 
-        <a class="simple" href="http://www.ucw.cz/~kral/index.html.en" target="_blank">Dan Kráľ</a>, 
-        <a class="simple" href="https://scholar.google.com/citations?user=g7UeQLYAAAAJ&hl=en" target="_blank">Laura Larios-Jones</a>,
-        <a class="simple" href="https://www.tue.nl/en/research/researchers/nelly-litvak/" target="_blank">Nelly Litvak</a>,
-        <a class="simple" href="https://tiffanyyylo.github.io/" target="_blank">Tiffany Y. Y. Lo</a>,  
-        <a class="simple" href="https://baptiste.louf.fr/" target="_blank">Baptiste Louf</a> (2), 
-        <a class="simple" href="https://www.uu.se/en/contact-and-organisation/staff?query=N13-1077" target="_blank"> Matteo Magnani</a>,
-        <a class="simple" href="https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/mcdiarmid-colin" target="_blank">Colin McDiarmid</a> (8), 
-        <a class="simple" href="http://users.cecs.anu.edu.au/~bdm/" target="_blank">Brendan McKay</a>, 
-        <a class="simple" href="http://www.professores.uff.br/tlmartins/" target="_blank">Taísa Martins</a>, 
-        <a class="simple" href="http://abel.math.umu.se/~klasm/" target="_blank">Klas Märkström</a>,
-        <a class="simple" href="http://www.dcs.gla.ac.uk/~kitty/" target="_blank">Kitty Meeks</a> (3), 
-        <a class="simple" href="http://people.dmi.uns.ac.rs/~mima/" target="_blank">Mirjana Mikalački</a>, 
-        <a class="simple" href="https://www.math.rug.nl/~tobias/" target="_blank">Tobias Müller</a>, 
-        <a class="simple" href="https://nagyzoli.web.elte.hu/" target="_blank">Zoltán Nagy</a>, 
-        <a class="simple" href="https://dblp.org/pers/n/Naor:Alon.html" target="_blank">Alon Naor</a>, 
-        <a class="simple" href="https://scholar.google.co.uk/citations?user=YPKQtYIAAAAJ&hl=nl" target="_blank">Roberto Parente</a>, 
-        <a class="simple" href="http://www.renyi.hu/~patkos/" target="_blank">Balázs Patkós</a>, 
-        <a class="simple" href="https://sarahpenington-lgtm.github.io/" target="_blank">Sarah Penington</a>, 
-        <a class="simple" href="https://scholar.google.com/citations?user=z7wxJS4AAAAJ&hl=en" target="_blank">Moumanti Podder</a>,
-        <a class="simple" href="http://www.math.ryerson.ca/~pralat/" target="_blank"> Paweł Prałat</a>,
-        <a class="simple" href="https://www2.umu.se/personal/eero-raty/" target="_blank">Eero Räty</a>, 
-        <a class="simple" href="https://user.it.uu.se/~chroh499/" target="_blank">Christian Rohner</a>,
-        <a class="simple" href="https://puckrombach.com/" target="_blank">Puck Rombach</a>, 
-        <a class="simple" href="https://scholar.google.com/citations?user=BbREwkIAAAAJ&hl=en" target="_blank">Cynthia Rush</a>, <!-- http://www.columbia.edu/~cgr2130/ --> 
-        <a class="simple" href="https://scholar.google.com/citations?user=6HFfOroAAAAJ&hl=pl" target="_blank">Katarzyna Rybarczyk</a>,               
-        <a class="simple" href="https://xins3.github.io/" target="_blank">Xin Shen</a>, 
-        <a class="simple" href="https://sites.google.com/site/matassileikis/" target="_blank">Matas Šileikis</a>,
-        <a class="simple" href="https://anda-skeja.com/" target="_blank">Anda Skeja</a> (2), 
-        <a class="simple" href="http://scholar.google.com/citations?user=kPDNP-cAAAAJ&hl=en" target="_blank">Małgorzata Sulkowska</a>,
-        <a class="simple" href="https://arxiv.org/search/cs?searchtype=author&query=Tousinejad,+Y" target="_blank">Yasmin Tousinejad</a>,     
-        <a class="simple" href="https://arxiv.org/search/math?searchtype=author&query=Verstraaten%2C+T" target="_blank">Teun Verstraaten</a>, 
-        <a class="simple" href="http://honza.ucw.cz/" target="_blank">Jan Volec</a>,
-        <a class="simple" href="https://www.alex-wein.com/" target="_blank">Alex Wein</a> (2),
-        <a class="simple" href="https://danayang.github.io/" target="_blank">Dana Yang</a> and
-        <a class="simple" href="https://arxiv.org/search/?query=Yates,Ella&searchtype=author">Ella Yates</a>.
-        <!-- -->
-
-
-<!--
-<p><details><summary ><a class="simple" href="http://www.sciencedirect.com/science/article/pii/S1571065313002151" target="_blank">Modularity in random regular graphs and lattices</a> with <a class="simple" href="https://www.maths.ox.ac.uk/people/colin.mcdiarmid" target="_blank">Colin McDiarmid</a>; <br><i>Electronic Notes in Discrete Mathematics 43 </i> (2013) [<a class="simple" href="http://www.sciencedirect.com/science/article/pii/S1571065313002151" target="_blank">doi</a>]  </summary > 
-              
-
-
-        <a><blockquote><small><p>
-        <a class="simple" href="https://fskerman.github.io/matchingspng.png">
-        <img border="0" alt="W3Schools" src="matchingspng.png" width="90" height="90"></a>         
-        <font color="grey">  Given a graph $G$, the modularity of a partition of the vertex set measures the extent to which edge density is higher within parts than between parts; and the modularity of $G$ is the maximum modularity of a partition. <br>
-
-        We give an upper bound on the modularity of r-regular graphs as a function of the edge expansion (or isoperimetric number) under the restriction that each part in our partition has a sub-linear numbers of vertices. This leads to results for random $r$-regular graphs. In particular we show the modularity of a random cubic graph partitioned into sub-linear parts is almost surely in the interval $(0.66, 0.88)$.</font> 
-        </details></p>    --
-
-</table>
-    
-<!-- Journal pages for Electronic notes.. pp. 431-437
-[R. Guimerà, M. Sales-Pardo and L.A. Amaral, Modularity from fluctuations in random graphs and complex networks, Phys. Rev. E70(2) (2004) 025101]. The modularity of a complete rectangular section of the in        <ul>
-<li><a href="index.html" style='background-color:#0099FF' onMouseOver="this.style.backgroundColor='#00CCFF'" onMouseOut="this.style.backgroundColor='#0099FF'" href="teaching.html">Home</a></li>
-<li><a href="cv.html">CV</a></li>
-<li><a href="material.html">Teaching</a></li>        
-</ul></center><p><p>teger lattice in a fixed dimension was estimated in <a class="simple" href="http://journals.aps.org/pre/abstract/10.1103/PhysRevE.70.025101" target="_blank">Guimerà et. al</a>. We extend this result to any subgraph of such a lattice.
--->
-
-           
-  
-            
-      
-
-<!--
-
-        <h3>Talks / Posters </h3>
-    <div align="left">
-
-(upcoming!) Pure Mathematics Seminar, Royal Holloway, Oct 2016 </br>
-</br>
-
--Probabilistic Combinatorics Downunder, Melbourne, Jun 2015</br>
-Modularity of Random Graphs </br>
-</br>
-
--SIAM Conference on Discrete Math, Atlanta, Jun 2016 </br>
-Modularity of Random Graphgs </br>
-</br>
-
--Combinatorics Seminar, University of Birmingham, May 2016 </br>
-Modularity of Random Graphs </br>
-</br>
-
-
-    	-Complex Networks and Emerging Applications, ICMS Edinburgh, Mar 2016</br>
-    	Modularity of Random Graphs </br>
-</br>
-
--Information Theory Group, Bristol University, Mar 2016 </br>
-Network Coding </br>
-</br>
-
-    	-Combinatorics Seminar, University of Bristol, Nov 2015</br>
-    	Modularity of Random Graphs </br>
-</br>
-	-British Combinatorial Conference, University of Warwick, Jul 2015</br>
-	    Modularity of Networks </br>
-</br>
-    	-Scottish Combinatorics Meeting, University of Glasgow, Apr 2015</br>
-    	Modularity of Networks </br>
-</br>
-    	-Network Journal Club, University of Oxford, Jan 2015 </br>
-    Modularity of Networks </br>
-</br>
-    -Combinatorics Seminar, University of Warwick, Nov 2014</br>
-    Modularity of Networks </br>
-</br>
-    -Random Structures and Algorithms, Poznan, Aug 2013</br>
-    Moduarity in random regular graphs and lattices </br>
-</br>
-    -Erdős Centennial, Budapest, Jul 2013</br>
-    Modularity, Edge expansion and Square lattices (poster) </br>
-</br>
-    -British Postgraduate Combinatorics Conference, University of Warwick, Aug 2012</br>
-    Degree Sequences in random bipartite graphs </br>
-</br>
-    -Miniconference during Block Course: Extremal Combinatorics in Random Discrete Structures, Berlin, Mar 2012</br>
-    Concentration inequalities via resevoir sampling algorithm </br>
-</br>
-    -Australasian Conference on Combinatorial Math. Combinatorial Comp. (ACCMCC), Australian National University, Canberra, Australia, Dec 2010 </br>
-    Row and column sums of random 0-1 matrices </br>        
-</div>      
-   
-   -->
-
-
-    <!-- Script to randomly open one abstract -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const allListed = document.querySelectorAll("details");
-            if (allListed.length > 0) {
-                // Pick random index between 0 and length - 1
-                const randomIndex = Math.floor(Math.random() * allListed.length);
-                // Open that specific details element
-                allListed[randomIndex].open = true;
-            }
-        });
-    </script>
-
-
-
-<!-- Statcounter code-->
-<script type="text/javascript">
-var sc_project=11757556; 
-var sc_invisible=1; 
-var sc_security="cdcb3d7e"; 
-var scJsHost = (("https:" == document.location.protocol) ?
-"https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="http://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="//c.statcounter.com/11757556/0/cdcb3d7e/0/" alt="Web
-Analytics"></a></div></noscript>
-<!-- End of Statcounter Code -->
-
-    </body>
+            <!--  -->
+            <div>
+                <div class="border-b border-slate-300 pb-4 flex items-center justify-between cursor-pointer hover:text-rose-900 transition-colors">
+                    <span class="text-xl font-semibold text-rose-900">Schedule</span>
+                    <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 30"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 8-8-8"></path></svg>
+                </div>
+                <!--  -->
+                <div class="mt-4 pl-2 space-y-2 text-sm sm:text-base text-slate-800">
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L1 Tue Sep 08</span><span>13:00 - 15:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L2 Tue Sep 15</span><span>13:00 - 15:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L3 Tue Sep 22</span><span>13:00 - 15:00</span><span>Room 64119</span></div>
+                <!--<div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>Fri Sep 25 (postponed) </span><span>10:00 - 12:00</span><span>Room 64119</span></div> -->
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L4 Tue Sep 29</span><span>13:00 - 15:00</span><span>Room 74118</span></div>
+                <!-- <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>Fri Oct 02</span><span>10:00 - 12:00</span><span>Room 64119</span></div> -->
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L5 Tue Oct 06</span><span>10:00 - 12:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L6 Fri Oct 09</span><span>10:00 - 12:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span> L7 Tue Oct 13</span><span>13:00 - 15:00</span><span>Room 74118</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>P1(L8) Fri Oct 16</span><span>10:00 - 12:00</span><span>Room 64119 (Problem Session 1)</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L9 Fri Oct 23</span><span>13:00 - 15:00</span><span>Room 74118</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L10 Wed Nov 04</span><span>15:00 - 17:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L11 Fri Nov 05</span><span>13:00 - 15:00</span><span>Room 64121</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L12 Tue Nov 10</span><span>10:00 - 12:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L13 Thu Nov 12</span><span>15:00 - 17:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L14 Tue Nov 17</span><span>13:00 - 15:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L15 Thu Nov 19</span><span>15:00 - 17:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L16 Mon Nov 23</span><span>13:00 - 15:00</span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>P2(L17) Thu Nov 26</span><span>15:00 - 17:00</span><span>Room 64119</span> (Problem Session 2)</div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L18 </span><span> ? </span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L19 </span><span> ? </span><span>Room 64119</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>L20 ? </span><span> ? </span><span>Room 64119</span></div>
+                <!--<div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>Tue Dec 01</span><span>13:00 - 15:00</span><span>Room 64121</span></div>
+                <div class="grid grid-cols-[110px_160px_1fr] gap-4"><span>Thu Dec 03</span><span>15:00 - 17:00</span><span>Room 64119</span></div>-->
+            </div>
+            </div>
+
+
+
+
+    <!-- Links to textbooks etc -->
+        <div>
+            <div class="border-b border-slate-300 pb-4 flex items-center justify-between cursor-pointer hover:text-rose-900 transition-colors">
+                <span class="text-xl font-semibold text-rose-900">Further Resources</span>
+                <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div class="mt-4 pl-2 space-y-2 text-sm sm:text-base text-slate-800">
+                <p> 
+                    `Random Graphs' textbook by Frieze and Karoński: <a href="https://www.math.cmu.edu/~af1p/BOOK.pdf" class="text-rose-700 hover:underline">link</a>, freely available online. <br> <br> 
+
+                    `Asymptotic Enumeration Methods' by Odlyzko. <a href="https://probcombuu.github.io/odlyzko.pdf" class="text-rose-700 hover:underline">pdf</a>. <br> <br> 
+                </p>
+            </div>
+        </div>
+        <hr class="border-t border-slate-200 border-dashed">
+    </div>
+        </div>
+
+
+</body>
 </html>
-
